@@ -1,3 +1,5 @@
+import { Todo_Filters } from "../consts";
+
 //* PARA LOS TIPOS E INTERFACES QUE SE VAYAN A REUTILIZAR
 export interface Todo {
   id: string;
@@ -23,3 +25,5 @@ export type TodoTitle = Pick<Todo, "title">;
 export type TodoCompleted = Pick<Todo, "completed">;
 
 export type ListOfTodos = Todo[];
+
+export type Filter_Value = (typeof Todo_Filters)[keyof typeof Todo_Filters];
