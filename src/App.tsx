@@ -1,10 +1,15 @@
 import { useState } from "react";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "/vite.svg";
 import "./App.css";
 import { Todos } from "./components/Todos";
-//import { TodoCompleted, TodoId } from "./types/types";
-import { TodoId, type Todo as TodoType } from "./types/types";
+import {
+  Filter_Value,
+  TodoId,
+  TodoTitle,
+  type Todo as TodoType,
+} from "./types/types";
+import { Todo_Filters } from "./consts";
+import { Footer } from "./components/Footer";
+import { Header } from "./components/Header";
 
 const mockTodos = [
   {
@@ -26,17 +31,25 @@ const mockTodos = [
 
 const App = (): JSX.Element => {
   const [todos, setTodos] = useState(mockTodos);
+  const [filterSelected, setFilterSelected] = useState<Filter_Value>(
+    Todo_Filters.ALL,
+  );
+  /**Ponemos useState<Filter_Value> porque el programa no va a entender que Todo_Filters.ALL es el valor inicial, piensa
+   * que es el único valor. Con esto aclaramos que puede haber cualquier valor de esta const lectura.
+   */
 
   const handleRemove = ({ id }: TodoId): void => {
+    //*------> PARA ELIMINAR UNA TAREA
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
   };
 
   const handleCompleted = ({
+    //*------> PARA ELIMINAR UNA TAREA COMPLETADA
     id,
     completed,
   }: Pick<TodoType, "id" | "completed">): void => {
-    //*-----> otra posibilidad: { id: TodoId; completed: TodoCompleted}
+    //-----> otra posibilidad: { id: TodoId; completed: TodoCompleted}
     const newTodo = todos.map((todo) => {
       if (todo.id === id) {
         return {
@@ -49,14 +62,55 @@ const App = (): JSX.Element => {
     setTodos(newTodo);
   };
 
+  const handleFilterChange = (filter: Filter_Value): void => {
+    //*-----> PARA CAMBIAR EL FILTRO
+    setFilterSelected(filter);
+  };
+
+  const handleRemoveCompleted = () => {
+    //*------> PARA ELIMINAR DE UN SOLO CLICK TODAS LAS TAREAS COMPLETADAS
+    const newTodos = todos.filter((todo) => !todo.completed);
+    setTodos(newTodos);
+  };
+
+  const handleAddTodo = ({ title }: TodoTitle): void => {
+    //*----> PARA CREAR NUEVAS TAREAS
+    const newTodo = {
+      title,
+      id: crypto.randomUUID(),
+      completed: false,
+    };
+    const freshTodo = [...todos, newTodo];
+    setTodos(freshTodo);
+  };
+
+  const activeCount = todos.filter((todos) => !todos.completed).length;
+  const completedCount = todos.length - activeCount;
+
+  const filteredTodos = todos.filter((todo) => {
+    if (filterSelected === Todo_Filters.ACTIVE) {
+      return !todo.completed;
+    }
+    if (filterSelected === Todo_Filters.COMPLETED) {
+      return todo.completed;
+    }
+    return todo;
+  });
+
   return (
     <>
-      <h1>TO DO LIST</h1>
-      <h2>TS edition</h2>
+      <Header onAddTodo={handleAddTodo} />
       <Todos
         toggleCompleted={handleCompleted}
         handleRemove={handleRemove}
-        todos={todos}
+        todos={filteredTodos}
+      />
+      <Footer
+        activeCount={activeCount}
+        completedCount={completedCount}
+        filterSelected={filterSelected}
+        onClearCompleted={handleRemoveCompleted}
+        handleFilterChange={handleFilterChange}
       />
     </>
   );
