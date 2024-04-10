@@ -1,18 +1,38 @@
 import React from "react";
-import { Todo_Filters, Filter_Buttons } from "../consts";
+import { Filter_Buttons } from "../consts";
 import { Filter_Value } from "../types/types";
 
 interface Props {
+  handleFilterChange: (filter: Filter_Value) => void;
   filterSelected: Filter_Value;
 }
 
 export const Filters: React.FC<Props> = ({
   filterSelected,
-  onFilterChange,
+  handleFilterChange,
 }) => {
+  const handleClick =
+    (filter: Filter_Value) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      handleFilterChange(filter);
+    };
   return (
     <ul className="filters">
-      <li>
+      {Object.entries(Filter_Buttons).map(([key, { href, literal }]) => {
+        return (
+          <li key={key}>
+            <a
+              href={href}
+              className={`${filterSelected === key ? "selected" : ""}`}
+              onClick={handleClick(key as Filter_Value)}
+            >
+              {literal}
+            </a>
+          </li>
+        );
+      })}
+
+      {/**<li>
         <a
           className={`${filterSelected === "all" ? "selected" : ""}`}
           onClick={() => {
@@ -37,7 +57,7 @@ export const Filters: React.FC<Props> = ({
         >
           Completados
         </a>
-      </li>
+        </li>*/}
     </ul>
   );
 };
