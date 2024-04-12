@@ -20,7 +20,7 @@ export const Filters: React.FC<Props> = ({
     <ul className="filters">
       {Object.entries(Filter_Buttons).map(([key, { href, literal }]) => {
         return (
-          <li key={key}>
+          <li className="anchors-li" key={key}>
             <a
               href={href}
               className={`${filterSelected === key ? "selected" : ""}`}
