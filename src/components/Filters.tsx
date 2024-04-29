@@ -1,6 +1,7 @@
 import React from "react";
 import { Filter_Buttons } from "../consts";
 import { Filter_Value } from "../types/types";
+import "./Filters.css";
 
 interface Props {
   handleFilterChange: (filter: Filter_Value) => void;

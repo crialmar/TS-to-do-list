@@ -1,6 +1,7 @@
 import React from "react";
 import { Filters } from "./Filters";
 import { Filter_Value } from "../types/types";
+import "./Footer.css";
 
 interface Props {
   activeCount: number;

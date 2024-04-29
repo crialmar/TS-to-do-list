@@ -1,8 +1,5 @@
-filters {
-  justify-content: center;
-  align-items: center;
-}
-
-.anchors-li {
-  color: blueviolet;
+.filters {
+  position: relative;
+  font-size: 20px;
+  border-bottom: 1px solid #ededed;
 }

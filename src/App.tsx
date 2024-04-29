@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Todos } from "./components/Todos";
 import {
@@ -14,26 +14,24 @@ import { Header } from "./components/Header";
 const mockTodos = [
   {
     id: "1",
-    title: "todo 1",
-    completed: false,
-  },
-  {
-    id: "2",
-    title: "todo 2",
-    completed: false,
-  },
-  {
-    id: "3",
-    title: "todo 3",
+    title: "Ejemplo de tarea",
     completed: false,
   },
 ];
 
 const App = (): JSX.Element => {
-  const [todos, setTodos] = useState(mockTodos);
+  const [todos, setTodos] = useState<TodoType[]>(() => {
+    const savedTodos = localStorage.getItem("todos");
+    return savedTodos ? JSON.parse(savedTodos) : mockTodos;
+  });
   const [filterSelected, setFilterSelected] = useState<Filter_Value>(
     Todo_Filters.ALL,
   );
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   /**Ponemos useState<Filter_Value> porque el programa no va a entender que Todo_Filters.ALL es el valor inicial, piensa
    * que es el único valor. Con esto aclaramos que puede haber cualquier valor de esta const lectura.
    */

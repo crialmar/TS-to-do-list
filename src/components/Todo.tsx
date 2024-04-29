@@ -1,5 +1,5 @@
 import { TodoId, Todo as TodoType } from "../types/types"; //*----> nos traemos la interface Todo ya que los valores que queremos usar son los mismos
-
+import "./Todo.css";
 // type Props = TodoType;
 
 interface Props extends TodoType {
