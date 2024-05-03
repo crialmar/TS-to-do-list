@@ -1,6 +1,7 @@
 import React from "react";
 import { TodoTitle } from "../types/types";
 import { CreateTodo } from "./CreateTodo";
+import "./Header.css";
 
 interface Props {
   onAddTodo: (title: TodoTitle) => void;

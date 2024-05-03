@@ -22,7 +22,7 @@ export const Todo: React.FC<Props> = ({
     toggleCompleted({ id, completed: e.target.checked });
   };
   return (
-    <div>
+    <div className="div__toggle">
       <input
         className="toggle"
         type="checkbox"

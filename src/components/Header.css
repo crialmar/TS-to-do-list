@@ -1,0 +1,15 @@
+header {
+  margin: 0px 0px 40px 0px;
+  padding: 10px 0px 10px 0px;
+  background-color: aqua;
+
+  h1 {
+    font-size: 30px;
+    margin: 5px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 5px 5px 10px 5px;
+  }
+}
