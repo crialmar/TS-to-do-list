@@ -37,7 +37,7 @@ export const Todo: React.FC<Props> = ({
           handleRemove({ id });
         }}
       >
-        BORRAME
+        x
       </button>
     </div>
   );

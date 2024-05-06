@@ -1,13 +1,17 @@
 .div__toggle {
   padding: 10px 0px 10px 0px;
+  margin: 5px 0px;
   border-radius: 15px;
-  -webkit-box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1);
+  /* -webkit-box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1);
   -moz-box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1);
-  box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1);
+  box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1); */
+  display: flex;
+  align-items: center;
+  background-color: aliceblue;
 }
 
 label {
-  padding: 10px 10px 10px 2px;
-  border-radius: 2px solid;
-  border-color: black;
+  padding: 5px 10px 5px 10px;
+  /* border-radius: 15px solid;
+  border-color: black;*/
 }

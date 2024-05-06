@@ -7,7 +7,7 @@ interface Props {
   activeCount: number;
   completedCount: number;
   filterSelected: Filter_Value;
-  onClearCompleted: () => void; //! ?
+  onClearCompleted: () => void;
   handleFilterChange: (filter: Filter_Value) => void;
 }
 
