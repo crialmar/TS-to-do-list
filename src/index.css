@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Raleway;
   line-height: 1.5;
   font-weight: 400;
 
@@ -74,7 +75,7 @@ button:focus-visible {
 }
 
 input {
-  background-color: #eee9e9;
+  background-color: #eae9ee;
   max-width: 190px;
   padding: 6px;
   border: 2px solid white;
@@ -83,10 +84,10 @@ input {
 }
 
 input:focus {
-  color: rgb(0, 255, 255);
-  background-color: #4b5696;
-  outline-color: rgb(0, 255, 255);
-  box-shadow: -3px -3px 15px rgb(0, 255, 255);
+  color: rgb(36, 35, 53);
+  background-color: #ebe4e41e;
+  outline-color: rgb(45, 62, 156);
+  box-shadow: -3px -3px 15px rgb(45, 62, 156);
   transition: 0.1s;
   transition-property: box-shadow;
 }
@@ -97,7 +98,7 @@ input:focus {
     background-color: #ffffff;
   }
   a:hover {
-    color: #8bff74;
+    color: #9e74ff;
   }
   button {
     background-color: #ffffff;

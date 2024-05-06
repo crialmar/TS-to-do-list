@@ -3,4 +3,14 @@ footer {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+
+  .to-do-count {
+    margin: 10px 0px 0px 0px;
+    font-size: 15px;
+  }
+
+  .clear-completed {
+    text-align: center;
+    background-color: red;
+  }
 }
