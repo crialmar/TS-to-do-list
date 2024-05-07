@@ -1,9 +1,7 @@
-import { TodoId, Todo as TodoType } from "../types/types"; //*----> nos traemos la interface Todo ya que los valores que queremos usar son los mismos
+import { TodoId, Todo as TodoType } from "../types/types";
 import "./Todo.css";
-// type Props = TodoType;
 
 interface Props extends TodoType {
-  //*-----> extendemos TodoType e introducimos así una nueva prop
   handleRemove: ({ id }: TodoId) => void;
   toggleCompleted: ({
     id,
@@ -28,7 +26,6 @@ export const Todo: React.FC<Props> = ({
         type="checkbox"
         checked={completed}
         onChange={handleChangeCheck}
-        //* OTRA FORMA DE HACER EL TOGGLE COMPLETED (eliminando lo de arriba): onChange={(e) => { toggleCompleted({ id, completed: e.target.checked });}}
       />
       <label>{title}</label>
       <button

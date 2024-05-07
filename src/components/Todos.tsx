@@ -15,7 +15,6 @@ export const Todos: React.FC<Props> = ({
   handleRemove,
   toggleCompleted,
 }) => {
-  //*----> React.FC: para especificar el type de las props
   return (
     <ul>
       {todos.map((todo) => (

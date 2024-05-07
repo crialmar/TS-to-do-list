@@ -3,9 +3,7 @@
   margin: 5px 0px;
   border-radius: 15px;
   width: 300px;
-  /* -webkit-box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1);
-  -moz-box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1);
-  box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1); */
+
   display: flex;
   align-items: center;
   background-color: rgb(240, 248, 255);
@@ -63,11 +61,9 @@
 
 label {
   padding: 5px 10px 5px 10px;
-  /* border-radius: 15px solid;
-  border-color: black;*/
 
-  max-width: 100%; /* Esto asegurará que el texto no supere el ancho del contenedor */
+  max-width: 100%;
   overflow: hidden;
-  text-overflow: ellipsis; /* Para agregar puntos suspensivos al final del texto si se recorta */
+  text-overflow: ellipsis;
   white-space: nowrap;
 }

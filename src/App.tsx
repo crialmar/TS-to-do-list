@@ -32,22 +32,15 @@ const App = (): JSX.Element => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
-  /**Ponemos useState<Filter_Value> porque el programa no va a entender que Todo_Filters.ALL es el valor inicial, piensa
-   * que es el único valor. Con esto aclaramos que puede haber cualquier valor de esta const lectura.
-   */
-
   const handleRemove = ({ id }: TodoId): void => {
-    //*------> PARA ELIMINAR UNA TAREA
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
   };
 
   const handleCompleted = ({
-    //*------> PARA ELIMINAR UNA TAREA COMPLETADA
     id,
     completed,
   }: Pick<TodoType, "id" | "completed">): void => {
-    //-----> otra posibilidad: { id: TodoId; completed: TodoCompleted}
     const newTodo = todos.map((todo) => {
       if (todo.id === id) {
         return {
@@ -61,18 +54,15 @@ const App = (): JSX.Element => {
   };
 
   const handleFilterChange = (filter: Filter_Value): void => {
-    //*-----> PARA CAMBIAR EL FILTRO
     setFilterSelected(filter);
   };
 
   const handleRemoveCompleted = () => {
-    //*------> PARA ELIMINAR DE UN SOLO CLICK TODAS LAS TAREAS COMPLETADAS
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
   };
 
   const handleAddTodo = ({ title }: TodoTitle): void => {
-    //*----> PARA CREAR NUEVAS TAREAS
     const newTodo = {
       title,
       id: crypto.randomUUID(),

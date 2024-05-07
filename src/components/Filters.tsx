@@ -32,33 +32,6 @@ export const Filters: React.FC<Props> = ({
           </li>
         );
       })}
-
-      {/**<li>
-        <a
-          className={`${filterSelected === "all" ? "selected" : ""}`}
-          onClick={() => {
-            onFilterChange("all");
-          }}
-        >
-          Todos
-        </a>
-        <a
-          className={`${filterSelected === "active" ? "selected" : ""}`}
-          onClick={() => {
-            onFilterChange("active");
-          }}
-        >
-          Activos
-        </a>
-        <a
-          className={`${filterSelected === "completed" ? "selected" : ""}`}
-          onClick={() => {
-            onFilterChange("completed");
-          }}
-        >
-          Completados
-        </a>
-        </li>*/}
     </ul>
   );
 };
