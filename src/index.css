@@ -110,20 +110,6 @@ input:focus {
   background: linear-gradient(180deg, #1e3c72 10%, #2a5298 90%);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #9e74ff;
-  }
-  button {
-    background-color: #ffffff;
-  }
-}
-
 @media (min-width: 700px) {
   h1,
   h2,
