@@ -127,7 +127,10 @@ input:focus {
 }
 
 @media (min-width: 700px) {
-  :root {
+  h1,
+  h2,
+  label,
+  span {
     color: #213547;
   }
 }
