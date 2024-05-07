@@ -8,7 +8,57 @@
   box-shadow: 0px 8px 0px -5px rgba(219, 210, 219, 1); */
   display: flex;
   align-items: center;
-  background-color: aliceblue;
+  background-color: rgb(240, 248, 255);
+
+  .toggle {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    appearance: none;
+    background-color: #bbb;
+    transition: all 0.3s;
+  }
+
+  .toggle::before {
+    content: "";
+    position: absolute;
+    border: solid #fff;
+    display: block;
+    width: 0.3em;
+    height: 0.6em;
+    border-width: 0 0.2em 0.2em 0;
+    z-index: 1;
+    opacity: 0;
+    right: calc(50% - 0.3em);
+    top: calc(50% - 0.6em);
+    transform: rotate(0deg);
+    transition: all 0.3s;
+    transform-origin: center center;
+  }
+
+  .toggle:checked {
+    animation: a 0.3s ease-in forwards;
+    background-color: #0dac6f;
+  }
+
+  .toggle:checked::before {
+    opacity: 1;
+    transform: rotate(405deg);
+  }
+
+  .delete {
+    position: absolute;
+    background-color: #f1f1f1;
+    padding: 3px 3px;
+    text-align: center;
+    font-size: small;
+  }
+
+  .delete:hover {
+    transition: 0.4s;
+    background-color: #ff0000c2;
+  }
 }
 
 label {

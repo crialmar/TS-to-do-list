@@ -17,7 +17,7 @@ export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
-        className={"input-create-todo"}
+        className="input-create-todo"
         value={inputValue}
         onChange={(e) => {
           setInputValue(e.target.value);

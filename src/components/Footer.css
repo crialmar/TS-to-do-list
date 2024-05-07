@@ -11,6 +11,11 @@ footer {
 
   .clear-completed {
     text-align: center;
-    background-color: red;
+    background-color: rgb(236, 104, 104);
+    margin: 0% 0px 15px 0px;
+    padding: 6px;
+    font-size: small;
+    font-weight: bold;
+    color: #213547;
   }
 }
